@@ -27,7 +27,7 @@ class Navbar extends Component {
             <NavMenu>
                 <a>
                     {/* <img src="./images/home-icon.svg" /> */}
-                    <span>HOME</span>
+                    <Link to='/dashboard'><span>HOME</span></Link>
                 </a>
                 <a>
                     {/* <img src="./images/search-icon.svg" /> */}
@@ -35,7 +35,7 @@ class Navbar extends Component {
                 </a>
                 <a>
                     {/* <img src="./images/watchlist-icon.svg" /> */}
-                    <Link to="/appointments"><span>Appointments</span></Link>
+                    <Link to="/appointment"><span>Appointments</span></Link>
                 </a>
                 <a>
                     {/* <img src="./images/original-icon.svg" /> */}

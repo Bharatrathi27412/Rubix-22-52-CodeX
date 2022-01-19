@@ -50,7 +50,7 @@ export default function AdminNavbarLinks() {
   };
   const handleCloseProfile = () => {
     setOpenProfile(null);
-    history.push(`/login`); 
+    history.push(`/`); 
   };
   return (
     <div>

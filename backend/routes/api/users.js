@@ -11,6 +11,18 @@ const validateLoginInput = require("../../validation/login");
 
 // Load User model
 const User = require("../../models/User");
+const Doctor = require("../../models/Doctors");
+
+// const doctor1 = new Doctor({
+//   name: "Alan Runner",
+//   specialization: "Zoologist",
+//   gender: "Male",
+//   age: 50,
+//   about: "One of the best doctors of zoology in area",
+//   location: "Mumbai"
+// });
+
+// doctor1.save();
 
 // @route POST api/users/register
 // @desc Register user
@@ -49,6 +61,18 @@ router.post("/register", (req, res) => {
     }
   });
 });
+
+router.post("/getdoc", (req,res) => {
+  Doctor.find({}, (err,data) => {
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log(data);
+      res.send(data);
+    }
+  })
+})
 
 // @route POST api/users/login
 // @desc Login user and return JWT token

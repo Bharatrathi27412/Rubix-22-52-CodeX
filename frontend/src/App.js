@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 
-import { setCurrentUser, logoutUser } from "./actions/authActions";
+import { setCurrentUser, logoutUser, getDoctors } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
@@ -13,6 +13,8 @@ import Register from "./views/auth/Register";
 import Login from "./views/auth/Login";
 import PrivateRoute from "./views/private-route/PrivateRoute";
 import Dashboard from "./views/dashboard/Dashboard";
+import Doctors from "./views/doctors/Doctors";
+
 
 import "./App.css";
 
@@ -36,6 +38,22 @@ if (localStorage.jwtToken) {
   }
 }
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      allDoctors : getDoctors(),
+    };
+  }
+
+  // componentDidMount() {
+  //   const getDoctorsData = async () => {
+  //     this.setState(
+  //       allDoctors : getDoctors(), 
+  //     )
+  // }
+  // getDoctorsData();
+  // }
+
   render() {
     return (
       <Provider store={store}>
@@ -45,6 +63,7 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/doctors" component={Doctors} />
             </Switch>
           </div>
         </Router>

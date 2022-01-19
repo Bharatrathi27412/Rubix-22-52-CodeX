@@ -7,6 +7,7 @@ import styled from 'styled-components'
 
 import { Component } from 'react'
 import { logoutUser } from "../../actions/authActions";
+import {Link} from 'react-router-dom';
 
 
 
@@ -46,7 +47,7 @@ class Navbar extends Component {
                 </a>
                 <a>
                     {/* <img src="./images/series-icon.svg" /> */}
-                    <span>Doctors Info</span>
+                    <Link to='/doctors'><span>Doctors Info</span></Link>
                 </a>
 
 

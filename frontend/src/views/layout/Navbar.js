@@ -40,7 +40,7 @@ class Navbar extends Component {
                 </a>
                 <a>
                     {/* <img src="./images/original-icon.svg" /> */}
-                    <span>Scheduled</span>
+                    <Link to='/schedules'><span>Scheduled</span></Link>
                 </a>
                 <a>
                     {/* <img src="./images/movie-icon.svg" /> */}

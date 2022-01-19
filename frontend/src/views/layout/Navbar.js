@@ -9,7 +9,7 @@ import { Component } from 'react'
 import { logoutUser } from "../../actions/authActions";
 import {Link} from 'react-router-dom';
 
-
+let user_id ="";
 
 class Navbar extends Component {
 
@@ -21,6 +21,7 @@ class Navbar extends Component {
 
   render() {
     const { user } = this.props.auth;
+    user_id = user.id;
     return (
         <Nav>
             {/* <Logo src="./images/logo.svg" /> */}
@@ -72,6 +73,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
+export { user_id }
 export default connect(
   mapStateToProps,
   { logoutUser }

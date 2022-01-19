@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 // core components
 import GridItem from "../../components/Grid/GridItem.js";
@@ -8,6 +8,8 @@ import Card from "../../components/Card/Card.js";
 import CardHeader from "../../components/Card/CardHeader.js";
 import CardBody from "../../components/Card/CardBody.js";
 import Navbar from '../layout/Navbar.js';
+import Axios from 'axios';
+import { user_id } from '../layout/Navbar.js';
 
 
 const styles = {
@@ -47,6 +49,33 @@ function Appointments() {
     const [uApp, setUpp] = useState([]);
 
   const [pApp, setPpp] = useState([]);
+
+  useEffect(() => {
+      const getAllAppointments = async () => {
+          const data = await Axios.post(
+              "api/users/getappointment/"+user_id
+          ).then((res) => res.data)
+
+          console.log(data.data);
+          let j=1,k=1;
+      let upp = [], ppp = [];
+      for(let i=0;i<data.data.length;i++) {
+        if(data.data[i].status == "Pending") {
+          upp.push([`${j}`, data.first, Date(data.data[i].date), data.data[i].status]);
+          j++;
+        }
+
+        else {
+          ppp.push([`${k}`, data.first, Date(data.data[i].date), data.data[i].status]);
+          k++;
+        }
+      }
+      setUpp(upp);
+      setPpp(ppp);
+      }
+      getAllAppointments();
+
+  },[])
 
     const classes = useStyles();
 

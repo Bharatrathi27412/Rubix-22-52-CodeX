@@ -14,11 +14,13 @@ const User = require("../../models/User");
 const Doctor = require("../../models/Doctors");
 const Appointment = require("../../models/appointment");
 
+var ObjectId = require('mongodb').ObjectId;
+
 // const appo1 = new Appointment({
-//   patientId: "61e6426c8a15dc5c77c7cabb",
+//   patientId: "61e6512dbde11d1bcd56f5b4",
 //   doctorId: "61e6dc8928a240f18df1b6d6",
 //   date: "12-02-2022",
-//   description: "Hello",
+//   description: "5th",
 //   status: "Pending",
 // });
 // appo1.save();
@@ -80,6 +82,33 @@ router.post("/getdoc", (req,res) => {
     else{
       console.log(data);
       res.send(data);
+    }
+  })
+});
+
+router.post("/getappointment/:user_id", (req,res) => {
+  console.log(req.params.user_id);
+  var user_id = new ObjectId(req.params.user_id);
+  Appointment.find({patientId: user_id}, (err,data) => {
+    if(err){
+      console.log(err)
+    }
+    else{
+      var did = data.doctorId;
+      Doctor.findOne({id:did}, (err,data1) => {
+        if(err){
+          console.log(err)
+        }
+        else{
+          console.log(data1)
+          // sendData['first'] = data1.name;
+          // console.log(sendData)
+          res.send({
+            'first':data1.name,
+            'data': data
+          })
+        }
+      })
     }
   })
 })

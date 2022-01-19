@@ -27,7 +27,7 @@ class Navbar extends Component {
             <NavMenu>
                 <a>
                     {/* <img src="./images/home-icon.svg" /> */}
-                    <span>HOME</span>
+                    <Link to='/dashboard'><span>HOME</span></Link>
                 </a>
                 <a>
                     {/* <img src="./images/search-icon.svg" /> */}

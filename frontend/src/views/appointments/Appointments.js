@@ -10,6 +10,8 @@ import CardBody from "../../components/Card/CardBody.js";
 import Navbar from '../layout/Navbar.js';
 import Axios from 'axios';
 import { user_id } from '../layout/Navbar.js';
+import { PropTypes } from 'prop-types';
+import { connect } from "react-redux";
 
 
 const styles = {

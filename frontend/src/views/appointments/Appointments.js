@@ -7,6 +7,7 @@ import Table from "../../components/Table/Table.js";
 import Card from "../../components/Card/Card.js";
 import CardHeader from "../../components/Card/CardHeader.js";
 import CardBody from "../../components/Card/CardBody.js";
+import Navbar from '../layout/Navbar.js';
 
 
 const styles = {
@@ -50,6 +51,8 @@ function Appointments() {
     const classes = useStyles();
 
   return (
+      <>
+      <Navbar style={{marginBottom:"22px"}} />
     <GridContainer>
     <GridItem xs={12} sm={12} md={12}>
       <Card>
@@ -86,6 +89,7 @@ function Appointments() {
       </Card>
     </GridItem>
   </GridContainer>
+  </>
   );
 }
 

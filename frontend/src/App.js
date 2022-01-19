@@ -48,7 +48,7 @@ class App extends Component {
       allDoctors : getDoctors(),
     };
   }
-
+//  zmxmz,x
   // componentDidMount() {
   //   const getDoctorsData = async () => {
   //     this.setState(

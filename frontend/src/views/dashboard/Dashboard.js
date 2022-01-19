@@ -5,6 +5,9 @@ import { logoutUser } from "../../actions/authActions";
 import Navbar from "../layout/Navbar"
 import styled from "styled-components"
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 // material
 // components
 
@@ -33,9 +36,22 @@ class Dashboard extends Component {
                 <span>10</span>
                 <p>Total Users</p>
               </Wrap>
-              <Wrap></Wrap>
-              <Wrap></Wrap>
-              <Wrap></Wrap>
+              <Wrap1>
+                <div><PersonAddIcon/></div>
+                <span>7</span>
+                <p>Doctors Added</p>
+              </Wrap1>
+              <Wrap2>
+                <div><FormatListNumberedIcon/></div>
+                <span>26</span>
+                <p>Total Appointments</p>
+              </Wrap2>
+              <Wrap3>
+                <div><PeopleAltIcon/></div>
+                <span>18</span>
+                <p>Registered Doctors</p>
+              </Wrap3>
+
 
 
             </GridBox>
@@ -109,6 +125,76 @@ const Wrap = styled.div`
 
 
 `
+const Wrap1= styled(Wrap)` 
+  background-color: rgb(208,242,255);
+
+  div {
+    color: #0C53B7;
+  }
+
+  span {
+    color: #04297A;
+  }
+
+  p {
+    color: #3E62A0;
+  }
+
+
+
+
+`
+
+const Wrap2= styled(Wrap)` 
+  background-color: #FFF7CD;
+
+  div {
+    color: rgb(183,129,3);
+  }
+
+  span {
+    color: rgb(122,79,1);
+  }
+
+  p {
+    color: rgb(160,126,59);
+  }
+
+
+
+
+
+
+`
+const Wrap3= styled(Wrap)` 
+
+background-color: rgb(255,231,217);
+
+div {
+  color: rgb(183,33,54);
+}
+
+span {
+  color: rgb(122,12,46);
+}
+
+p {
+  color: rgb(186,117,128);
+}
+
+
+
+
+
+
+
+`
+
+
+
+
+
+
 
 
 Dashboard.propTypes = {

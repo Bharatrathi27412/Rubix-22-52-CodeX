@@ -10,7 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 
-function Appointment() {
+function Book({match}) {
 
   const [startDate, setStartDate] = useState(new Date());
   const [description,setDescription]= useState("");
@@ -18,6 +18,8 @@ function Appointment() {
 
   // console.log(startDate);
   // console.log(description);
+
+  const docname = match.params.docname;
 
   const display = (e)=> {
     e.preventDefault();
@@ -48,6 +50,11 @@ function Appointment() {
               </h4>
             </div>
             <form>
+            <div className="input-field col s12">
+                <input id="docname" type="text" value={docname} readOnly/>
+                <label htmlFor="docname"></label>
+              </div>
+
               <div className="input-field col s12">
                 <input id="description" type="text" value={description} required onChange={(e)=>setDescription(e.target.value)}/>
                 <label htmlFor="description">Description</label>
@@ -91,7 +98,7 @@ function Appointment() {
   );
 }
 
-export default Appointment;
+export default Book;
 
 const Frame = styled(DatePicker)` 
   .react-datepicker-popper {

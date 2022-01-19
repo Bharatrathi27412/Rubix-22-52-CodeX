@@ -10,6 +10,8 @@ import { getDoctors } from '../../actions/authActions.js';
 import {GlobalContext} from '../../GlobalContext';
 import Axios from 'axios';
 import Navbar from '../layout/Navbar.js';
+import { Link } from "react-router-dom";
+
 
 const styles = {
     cardCategoryWhite: {
@@ -76,7 +78,7 @@ function Doctors() {
               <span>Age: {elem.age}</span>
               <span style={{ borderTop: 'solid', borderColor: "#ccc", borderWidth: 1, padding: '4px auto', margin: '4px 0' }}>About: {elem.about}</span>
             </StyledIndividualDoctorPanel>
-            <StyledButton
+            <Link to= {`/book/${elem.name} `} ><StyledButton
                   fullWidth
                   color="primary"
                 //   onClick={() => {
@@ -87,7 +89,7 @@ function Doctors() {
                     {/* <Link to={`/bookAppointment/3`} style={{ color: '#fff' }}>
                       Book an Appointment
                     </Link> */}
-                  </StyledButton>
+                  </StyledButton></Link>
           </CardBody>
         </Card>
                 ))} 

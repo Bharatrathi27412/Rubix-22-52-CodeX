@@ -15,6 +15,7 @@ import PrivateRoute from "./views/private-route/PrivateRoute";
 import Dashboard from "./views/dashboard/Dashboard";
 import Doctors from "./views/doctors/Doctors";
 import appointments from "./views/appointments/Appointments.js";
+import Book from "./views/book/Book";
 
 
 import "./App.css";
@@ -67,6 +68,10 @@ class App extends Component {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/doctors" component={Doctors} />
               <PrivateRoute exact path="/appointment" component={Appointments} />
+              <PrivateRoute exact path="/book" component={Book} />
+              <PrivateRoute exact path="/book/:docname" component={Book} />
+
+
 
             </Switch>
           </div>

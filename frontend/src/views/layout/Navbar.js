@@ -35,7 +35,7 @@ class Navbar extends Component {
                 </a>
                 <a>
                     {/* <img src="./images/watchlist-icon.svg" /> */}
-                    <span>Appointments</span>
+                    <Link to="/appointment"><span>Appointments</span></Link>
                 </a>
                 <a>
                     {/* <img src="./images/original-icon.svg" /> */}

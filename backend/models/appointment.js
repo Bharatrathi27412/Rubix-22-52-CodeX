@@ -27,8 +27,9 @@ const appointmentSchema = new Schema({
         default: "Pending",
     },
     report: {
-        type: BSON.ObjectId,
+        type: String,
         default: "",
+        required: false
     }
 });
 

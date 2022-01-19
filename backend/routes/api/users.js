@@ -12,6 +12,16 @@ const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/User");
 const Doctor = require("../../models/Doctors");
+const Appointment = require("../../models/appointment");
+
+// const appo1 = new Appointment({
+//   patientId: "61e6426c8a15dc5c77c7cabb",
+//   doctorId: "61e6dc8928a240f18df1b6d6",
+//   date: "12-02-2022",
+//   description: "Hello",
+//   status: "Pending",
+// });
+// appo1.save();
 
 // const doctor1 = new Doctor({
 //   name: "Alan Runner",

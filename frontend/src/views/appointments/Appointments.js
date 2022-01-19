@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , Component } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 // core components
 import GridItem from "../../components/Grid/GridItem.js";
@@ -8,6 +8,10 @@ import Card from "../../components/Card/Card.js";
 import CardHeader from "../../components/Card/CardHeader.js";
 import CardBody from "../../components/Card/CardBody.js";
 import Navbar from '../layout/Navbar.js';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { user_id } from "../layout/Navbar";
+
 
 
 const styles = {
@@ -42,13 +46,20 @@ const styles = {
   
   const useStyles = makeStyles(styles);
 
-function Appointments() {
 
+
+
+function Appointments(){
     const [uApp, setUpp] = useState([]);
 
   const [pApp, setPpp] = useState([]);
 
     const classes = useStyles();
+
+    // const { user } = this.props.auth;
+
+    console.log(user_id);
+
 
   return (
       <>
@@ -93,4 +104,14 @@ function Appointments() {
   );
 }
 
-export default Appointments;
+Appointments.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+)(Appointments);

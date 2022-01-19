@@ -4,9 +4,10 @@ import DatePicker from "react-datepicker";
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Divider from '@mui/material/Divider';
-
+import { user_id } from '../layout/Navbar';
 
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
 
 
 
@@ -21,26 +22,37 @@ function Book({match}) {
 
   const docname = match.params.docname;
 
-  const display = (e)=> {
+  const sendData = async (e)=> {
     e.preventDefault();
-  try {
-    // console.log("asncjnxaklncklm");
-    console.log(startDate);    
-    console.log(description);
+    await axios.post("/api/users/bookappointment",{
+      userId: user_id,
+      docName: docname,
+      date: startDate,
+      desp: description
 
-    console.log(file.name);
-  }catch(e) {
-    console.log(e);
-  }
+    })
+
+    .then(console.log("bhjahbjxbjankj"));
+
+    }
+  // try {
+  //   // console.log("asncjnxaklncklm");
+  //   console.log(startDate);    
+  //   console.log(description);
+
+  //   console.log(file.name);
+  // }catch(e) {
+  //   console.log(e);
+  // }
 
 
-  }
+  
   
 
   return (
     <>
       <Navbar />
-      <form type="submit" onSubmit={display}>
+      <form type="submit">
       <div className="container">
         <div style={{ marginTop: "4rem" }} className="row">
           <div className="col s8 offset-s2">
@@ -81,8 +93,7 @@ function Book({match}) {
                     borderRadius: "3px",
                     letterSpacing: "1.5px",
                     marginTop: "1rem"
-                  }}
-                  type="submit"
+                  }} onClick={sendData} type="submit"
                   className="btn btn-large waves-effect waves-light hoverable green accent-3"
                 >
                   Submit

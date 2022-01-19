@@ -60,17 +60,17 @@ function Appointments(){
               "api/users/getappointment/"+user_id
           ).then((res) => res.data)
 
-          console.log(data.data);
+          console.log(data);
           let j=1,k=1;
       let upp = [], ppp = [];
-      for(let i=0;i<data.data.length;i++) {
-        if(data.data[i].status == "Pending") {
-          upp.push([`${j}`, data.first, Date(data.data[i].date), data.data[i].status]);
+      for(let i=0;i<data.length;i++) {
+        if(data[i].status == "Pending") {
+          upp.push([`${j}`, data[i].doctorId, Date(data[i].date), data[i].status]);
           j++;
         }
 
         else {
-          ppp.push([`${k}`, data.first, Date(data.data[i].date), data.data[i].status]);
+          ppp.push([`${k}`, data[i].doctorId, Date(data[i].date), data[i].status]);
           k++;
         }
       }

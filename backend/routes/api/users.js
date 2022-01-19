@@ -86,29 +86,48 @@ router.post("/getdoc", (req,res) => {
   })
 });
 
+router.post("/bookappointment",(req,res)=>{
+  console.log(req.body);
+
+  const newAppointment = new Appointment({
+    patientId: req.body.userId,
+    doctorId: req.body.docName,
+    date: req.body.date,
+    description: req.body.desp
+  });
+
+  newAppointment.save()
+  .then(user => res.json())
+  .catch(err => console.log(err));
+
+
+})
+
 router.post("/getappointment/:user_id", (req,res) => {
   console.log(req.params.user_id);
   var user_id = new ObjectId(req.params.user_id);
   Appointment.find({patientId: user_id}, (err,data) => {
+    console.log(data);
     if(err){
       console.log(err)
     }
     else{
       var did = data.doctorId;
-      Doctor.findOne({id:did}, (err,data1) => {
-        if(err){
-          console.log(err)
-        }
-        else{
-          console.log(data1)
-          // sendData['first'] = data1.name;
-          // console.log(sendData)
-          res.send({
-            'first':data1.name,
-            'data': data
-          })
-        }
-      })
+      // Doctor.findOne({id:did}, (err,data1) => {
+      //   if(err){
+      //     console.log(err)
+      //   }
+      //   else{
+      //     console.log(data1)
+      //     // sendData['first'] = data1.name;
+      //     // console.log(sendData)
+      //     res.send({
+      //       'first':data1.name,
+      //       'data': data
+      //     })
+      //   }
+      // })
+      res.send(data)
     }
   })
 })

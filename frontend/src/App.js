@@ -17,6 +17,7 @@ import Doctors from "./views/doctors/Doctors";
 
 
 import "./App.css";
+import Appointments from "./views/appointments/Appointments";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -64,6 +65,7 @@ class App extends Component {
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/doctors" component={Doctors} />
+              <PrivateRoute exact path="/appointments" component={Appointments} />
             </Switch>
           </div>
         </Router>

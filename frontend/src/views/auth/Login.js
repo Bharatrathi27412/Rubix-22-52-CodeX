@@ -78,7 +78,7 @@ class Login extends Component {
                     invalid: errors.email || errors.emailnotfound
                   })}
                 />
-                <label htmlFor="email" style={{color: "#000", fontWeight:"500"}}>Email</label>
+                <label htmlFor="email" style={{color: "#000", fontWeight:"400"}}>Email</label>
                 <span className="red-text">
                   {errors.email}
                   {errors.emailnotfound}
@@ -95,7 +95,7 @@ class Login extends Component {
                     invalid: errors.password || errors.passwordincorrect
                   })}
                 />
-                <label htmlFor="password" style={{color: "#000", fontWeight:"500"}}>Password</label>
+                <label htmlFor="password" style={{color: "#000", fontWeight:"400"}}>Password</label>
                 <span className="red-text">
                   {errors.password}
                   {errors.passwordincorrect}

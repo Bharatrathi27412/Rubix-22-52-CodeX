@@ -8,6 +8,7 @@ import { user_id } from '../layout/Navbar';
 
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import  { Redirect }  from "react-router-dom"
 
 
 
@@ -22,6 +23,7 @@ function Book({match}) {
 
   const docname = match.params.docname;
 
+
   const sendData = async (e)=> {
     e.preventDefault();
     await axios.post("/api/users/bookappointment",{
@@ -31,9 +33,9 @@ function Book({match}) {
       desp: description
 
     })
-    // .then(res => history.push("/appointment"))
-    // .catch(err =>console.log(err)
-    // );
+    .then(res => alert("Appointment booked!!"))
+    .catch(err =>console.log(err)
+    );
 
 
     // .then(console.log("bhjahbjxbjankj"));

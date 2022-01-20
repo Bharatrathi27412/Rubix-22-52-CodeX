@@ -31,8 +31,12 @@ function Book({match}) {
       desp: description
 
     })
+    // .then(res => history.push("/appointment"))
+    // .catch(err =>console.log(err)
+    // );
 
-    .then(console.log("bhjahbjxbjankj"));
+
+    // .then(console.log("bhjahbjxbjankj"));
 
     }
   // try {

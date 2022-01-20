@@ -21,6 +21,7 @@ import Book from "./views/book/Book";
 import "./App.css";
 import Appointments from "./views/appointments/Appointments";
 import Schedules from "./views/schedules/Schedules";
+import UserInfo from "./views/userInfo/UserInfo";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -72,6 +73,9 @@ class App extends Component {
               <PrivateRoute exact path="/book" component={Book} />
               <PrivateRoute exact path="/book/:docname" component={Book} />
               <PrivateRoute exact path="/schedules" component={Schedules} />
+              <PrivateRoute exact path="/userinfo" component={UserInfo} />
+
+              
 
 
             </Switch>

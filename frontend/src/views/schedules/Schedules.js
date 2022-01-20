@@ -47,21 +47,21 @@ function Schedules() {
         k = 1;
       let upp = [],
         ppp = [];
-      for (let i = 0; i < data.data.length; i++) {
-        if (data.data[i].status == "Pending") {
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].status == "Pending") {
           upp.push({
             imgUrl: "../assets/doctor.jpeg",
-            name: data.first,
+            name: data[i].doctorId,
             // Specialization: data[i].doctorId.specialization,
-            When: Date(data.data[i].date),
+            When: Date(data[i].date),
           });
           j++;
         } else {
           ppp.push([
             `${j}`,
-            data.first,
-            data.data[i].date,
-            data.data[i].status,
+            data[i].doctorId,
+            data[i].date,
+            data[i].status,
           ]);
           k++;
         }

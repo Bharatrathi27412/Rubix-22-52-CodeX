@@ -1,0 +1,17 @@
+.bg {
+    position: relative;
+}
+
+.bg::before {
+    content: "";
+    background: url(./bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top:-20px;
+    left:0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    
+}

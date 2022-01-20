@@ -11,6 +11,7 @@ import {GlobalContext} from '../../GlobalContext';
 import Axios from 'axios';
 import Navbar from '../layout/Navbar.js';
 import { Link } from "react-router-dom";
+import "./doctor.css";
 
 
 const styles = {
@@ -63,7 +64,7 @@ function Doctors() {
     return ( 
         <>
         <Navbar />
-        <div style={{marginTop: "22px"}}>
+        <div className="bg" style={{marginTop: "22px"}}>
             <StyledDoctorContainer>
                  {allDoctors.map(elem => (
         <Card>

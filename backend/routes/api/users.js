@@ -103,6 +103,20 @@ router.post("/bookappointment",(req,res)=>{
 
 })
 
+router.post("/getusers",(req,res)=>{
+  console.log(req.body);
+
+  let temp= req.body.userId;
+  User.findOne({id:temp},(err,data)=>{
+    if(err) {
+      console.log(err);
+    }
+    else {
+      res.send(data)
+    }
+  })
+})
+
 router.post("/getappointment/:user_id", (req,res) => {
   console.log(req.params.user_id);
   var user_id = new ObjectId(req.params.user_id);

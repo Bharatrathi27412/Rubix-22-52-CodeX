@@ -58,7 +58,7 @@ function Doctors() {
       }
       getDoctorsData();
       // done
-    })
+    },[])
 
     return ( 
         <>

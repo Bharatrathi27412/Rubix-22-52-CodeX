@@ -8,7 +8,7 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 export const registerUser = (userData, history) => dispatch => {
   axios
     .post("/api/users/register", userData)
-    .then(res => history.push("/login"))
+    .then(res => history.push("/"))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -66,3 +66,14 @@ export const logoutUser = () => dispatch => {
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
 };
+
+
+export const getDoctors = (req,res) => dispatch => {
+  axios
+  .post("/api/users/getdoc")
+  .then(res => {
+    const data = res.data;
+    console.log(data);
+    return(data) ;
+  })
+}

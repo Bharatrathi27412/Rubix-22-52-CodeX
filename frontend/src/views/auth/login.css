@@ -1,0 +1,45 @@
+input {
+    font-weight: 500;
+}
+
+label {
+    color: black;
+}
+
+
+.background {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+
+
+}
+
+
+
+
+.background::before {
+    content: "";
+    background: url("./background.jpg");
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: -1;
+    overflow: hidden;
+    opacity: 0.7;
+
+    /* z-index: -1; */
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+
+}
+
+.btn {
+    background-color: rgba(251,132,126);
+}
+
+.btn:hover {
+    background-color: rgb(226, 74, 66);
+}

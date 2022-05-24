@@ -1,0 +1,48 @@
+# Query: /login
+# ContextLines: 1
+
+10 results - 7 files
+
+backend\routes\api\users.js:
+   9  const validateRegisterInput = require("../../validation/register");
+  10: const validateLoginInput = require("../../validation/login");
+  11  
+
+  76  
+  77: // @route POST api/users/login
+  78  // @desc Login user and return JWT token
+  79  // @access Public
+  80: router.post("/login", (req, res) => {
+  81    // Form validation
+
+frontend\src\App.js:
+  12  import Register from "./views/auth/Register";
+  13: import Login from "./views/auth/Login";
+  14  import PrivateRoute from "./views/private-route/PrivateRoute";
+
+frontend\src\actions\authActions.js:
+  10      .post("/api/users/register", userData)
+  11:     .then(res => history.push("/"))
+  12      .catch(err =>
+
+  22    axios
+  23:     .post("/api/users/login", userData)
+  24      .then(res => {
+
+frontend\src\components\authentication\login\index.js:
+  1: export { default as LoginForm } from './LoginForm';
+
+frontend\src\components\Navbars\AdminNavbarLinks.js:
+  52      setOpenProfile(null);
+  53:     history.push(`/`); 
+  54    };
+
+frontend\src\views\layout\Landing.js:
+  34                <Link
+  35:                 to="/"
+  36                  style={{
+
+frontend\src\views\private-route\PrivateRoute.js:
+  12        ) : (
+  13:         <Redirect to="/" />
+  14        )

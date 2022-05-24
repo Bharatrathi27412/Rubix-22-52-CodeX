@@ -7,8 +7,10 @@ import styled from 'styled-components'
 
 import { Component } from 'react'
 import { logoutUser } from "../../actions/authActions";
-
-
+import {Link} from 'react-router-dom';
+import {useState, useEffect} from 'react'
+let user_id ="";
+let user_name= "";
 
 class Navbar extends Component {
 
@@ -20,33 +22,33 @@ class Navbar extends Component {
 
   render() {
     const { user } = this.props.auth;
+        user_id = user.id;
+        user_name= user.name;
+
+      
     return (
         <Nav>
             {/* <Logo src="./images/logo.svg" /> */}
             <NavMenu>
                 <a>
                     {/* <img src="./images/home-icon.svg" /> */}
-                    <span>HOME</span>
-                </a>
-                <a>
-                    {/* <img src="./images/search-icon.svg" /> */}
-                    <span>SEARCH</span>
+                    <Link to='/dashboard'><span>HOME</span></Link>
                 </a>
                 <a>
                     {/* <img src="./images/watchlist-icon.svg" /> */}
-                    <span>Appointments</span>
+                    <Link to="/appointment"><span>Appointments</span></Link>
                 </a>
                 <a>
                     {/* <img src="./images/original-icon.svg" /> */}
-                    <span>Scheduled</span>
+                    <Link to='/schedules'><span>Scheduled</span></Link>
                 </a>
                 <a>
                     {/* <img src="./images/movie-icon.svg" /> */}
-                    <span>User Info</span>
+                    <Link to ='/userinfo'><span>User Info</span></Link>
                 </a>
                 <a>
                     {/* <img src="./images/series-icon.svg" /> */}
-                    <span>Doctors Info</span>
+                    <Link to='/doctors'><span>Doctors Info</span></Link>
                 </a>
 
 
@@ -71,6 +73,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
+export { user_id, user_name }
 export default connect(
   mapStateToProps,
   { logoutUser }

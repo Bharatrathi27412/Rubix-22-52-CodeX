@@ -11,6 +11,30 @@ const validateLoginInput = require("../../validation/login");
 
 // Load User model
 const User = require("../../models/User");
+const Doctor = require("../../models/Doctors");
+const Appointment = require("../../models/appointment");
+
+var ObjectId = require('mongodb').ObjectId;
+
+// const appo1 = new Appointment({
+//   patientId: "61e6512dbde11d1bcd56f5b4",
+//   doctorId: "61e6dc8928a240f18df1b6d6",
+//   date: "12-02-2022",
+//   description: "5th",
+//   status: "Pending",
+// });
+// appo1.save();
+
+// const doctor1 = new Doctor({
+//   name: "Alan Runner",
+//   specialization: "Zoologist",
+//   gender: "Male",
+//   age: 50,
+//   about: "One of the best doctors of zoology in area",
+//   location: "Mumbai"
+// });
+
+// doctor1.save();
 
 // @route POST api/users/register
 // @desc Register user
@@ -49,6 +73,78 @@ router.post("/register", (req, res) => {
     }
   });
 });
+
+router.post("/getdoc", (req,res) => {
+  Doctor.find({}, (err,data) => {
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log(data);
+      res.send(data);
+    }
+  })
+});
+
+router.post("/bookappointment",(req,res)=>{
+  console.log(req.body);
+
+  const newAppointment = new Appointment({
+    patientId: req.body.userId,
+    doctorId: req.body.docName,
+    date: req.body.date,
+    description: req.body.desp
+  });
+
+  newAppointment.save()
+  .then(user => res.json())
+  .catch(err => console.log(err));
+
+
+})
+
+router.post("/getusers",(req,res)=>{
+  console.log(req.body);
+
+  let temp= req.body.userId;
+  User.findOne({id:temp},(err,data)=>{
+    if(err) {
+      console.log(err);
+    }
+    else {
+      res.send(data)
+    }
+  })
+})
+
+router.post("/getappointment/:user_id", (req,res) => {
+  console.log(req.params.user_id);
+  var user_id = new ObjectId(req.params.user_id);
+  Appointment.find({patientId: user_id}, (err,data) => {
+    console.log(data);
+    if(err){
+      console.log(err)
+    }
+    else{
+      var did = data.doctorId;
+      // Doctor.findOne({id:did}, (err,data1) => {
+      //   if(err){
+      //     console.log(err)
+      //   }
+      //   else{
+      //     console.log(data1)
+      //     // sendData['first'] = data1.name;
+      //     // console.log(sendData)
+      //     res.send({
+      //       'first':data1.name,
+      //       'data': data
+      //     })
+      //   }
+      // })
+      res.send(data)
+    }
+  })
+})
 
 // @route POST api/users/login
 // @desc Login user and return JWT token
